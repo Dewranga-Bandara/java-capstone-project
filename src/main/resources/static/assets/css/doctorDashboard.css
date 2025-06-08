@@ -1,0 +1,167 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f5f8fa;
+    color: #333;
+}
+
+/* Wrapper Layout */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-image: url('static/assets/images/logo/logo.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+#searchBar {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: #015c5d;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #017d7e;
+}
+
+#dateFilter {
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    border: 1px solid #ccc;
+}
+
+/* Table Styling */
+.table-section {
+    overflow-x: auto;
+}
+
+#patientTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#patientTable thead {
+    background-color: rgba(1, 92, 93, 0.8);
+    color: white;
+}
+
+#patientTable thead th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+#patientTable tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+#patientTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#patientTable tbody tr:hover {
+    background-color: #e6f7f7;
+}
+
+/* Prescription Button */
+.prescription-btn {
+    padding: 0.4rem 0.8rem;
+    background-color: #019494;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.prescription-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Empty Records */
+.noPatientRecord td {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    #searchBar,
+    .filter-btn,
+    #dateFilter {
+        width: 100%;
+    }
+
+    #patientTable thead {
+        font-size: 0.9rem;
+    }
+
+    #patientTable tbody td {
+        font-size: 0.9rem;
+    }
+}

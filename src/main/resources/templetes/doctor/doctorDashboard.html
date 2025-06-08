@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DoctorDashboard</title>
+    <link rel="icon" th:href="@{/assets/images/favicon.ico}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/adminDashboard.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/doctorDashboard.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+
+    <!-- Utility Scripts -->
+    <script th:src="@{/js/util.js}" defer></script>
+    <script th:src="@{/js/render.js}" defer></script>
+
+    <!-- Components -->
+    <script th:src="@{/js/components/header.js}" defer></script>
+    <script th:src="@{/js/components/footer.js}" defer></script>
+    <script th:src="@{/js/components/patientRows.js}" defer></script>
+
+    <!-- Services -->
+    <script type="module" th:src="@{/js/services/patientServices.js}" defer></script>
+    <script type="module" th:src="@{/js/doctor/doctorDashboard.js}" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <!-- Dynamic Header -->
+        <div id="header"></div>
+
+        <!-- Main Dashboard -->
+        <main class="main-content">
+            <section class="controls">
+                <input type="text" id="searchBar" placeholder="Search patients by name" />
+
+                <div class="filters">
+                    <button class="filter-btn" id="todayAppointmentsBtn">Today’s Appointments</button>
+                    <input type="date" id="dateFilter" />
+                </div>
+            </section>
+
+            <section class="table-section">
+                <table id="patientTable">
+                    <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Prescription</th>
+                    </tr>
+                    </thead>
+                    <tbody id="patientTableBody">
+                    <!-- Dynamically injected by JS -->
+                    <tr class="noPatientRecord">
+                        <td colspan="5">No patient records found.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <!-- Dynamic Footer -->
+        <div id="footer"></div>
+    </div>
+</div>
+</body>
+</html>

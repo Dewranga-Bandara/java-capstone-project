@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/adminDashboard.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+
+        <!-- Header (Dynamic) -->
+        <div id="header"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Bar -->
+            <input type="text" id="searchBar" placeholder="Search by doctor name" class="search-bar"/>
+
+            <!-- Filters -->
+            <div class="filters">
+                <select id="sortTime">
+                    <option value="">Sort by Time</option>
+                    <option value="asc">Earliest First</option>
+                    <option value="desc">Latest First</option>
+                </select>
+
+                <select id="filterSpecialty">
+                    <option value="">Filter by Specialty</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="orthopedics">Orthopedics</option>
+                    <!-- Add more specialties as needed -->
+                </select>
+            </div>
+
+            <!-- Doctor Cards Rendered Here -->
+            <div id="content" class="doctor-list"></div>
+        </main>
+
+        <!-- Footer (Dynamic) -->
+        <div id="footer"></div>
+    </div>
+</div>
+
+<!-- Modal for Adding Doctor -->
+<div id="modal" class="modal">
+    <span id="closeModal" class="close">&times;</span>
+    <div id="modal-body"></div>
+</div>
+
+<!-- JavaScript -->
+<script th:src="@{/js/render.js}" defer></script>
+<script th:src="@{/js/util.js}" defer></script>
+<script th:src="@{/js/components/header.js}" defer></script>
+<script th:src="@{/js/components/footer.js}" defer></script>
+<script type="module" th:src="@{/js/services/adminDashboard.js}" defer></script>
+<script type="module" th:src="@{/js/components/doctorCard.js}" defer></script>
+</body>
+</html>
